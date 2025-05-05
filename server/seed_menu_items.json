@@ -1,0 +1,1841 @@
+[
+  {
+    "id": "001",
+    "name": "Pan Fried Pork Buns",
+    "nameZh": "天同生煎包",
+    "description": "(8pcs)",
+    "price": 15.8,
+    "tags": [
+      "signature",
+      "chilli",
+      "nut"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/001.jpg",
+    "category": "四大金刚 The Four Best Sellers"
+  },
+  {
+    "id": "002",
+    "name": "Xiao Long Bao - Steamed Soup Dumplings",
+    "nameZh": "灌湯小籠包",
+    "description": "(8pcs)",
+    "price": 15.8,
+    "tags": [
+      "signature",
+      "chilli",
+      "nut"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/002.jpg",
+    "category": "bestsellers"
+  },
+  {
+    "id": "003",
+    "name": "Wonton in Red Chilli Sauce",
+    "nameZh": "紅油抄手",
+    "description": "(10pcs)",
+    "price": 15.8,
+    "tags": [
+      "chilli",
+      "nut"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/003.jpg",
+    "category": "bestsellers"
+  },
+  {
+    "id": "004",
+    "name": "Pan Fried Pork Dumplings",
+    "nameZh": "招牌上海天同鍋貼",
+    "description": "(8pcs)",
+    "price": 15.8,
+    "tags": [
+      "signature",
+      "nut"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/004.jpg",
+    "category": "bestsellers"
+  },
+  {
+    "id": "005",
+    "name": "Steamed Pork and Chives Dumplings",
+    "nameZh": "韭菜豬肉水餃",
+    "description": "(12pcs)",
+    "price": 15.8,
+    "tags": [
+      "signature",
+      "nut",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/005.jpg",
+    "category": "dumplings"
+  },
+  {
+    "id": "006",
+    "name": "Steamed Vegetarian Dumplings",
+    "nameZh": "花菜素餃",
+    "description": "(8pcs)",
+    "price": 15.8,
+    "tags": [
+      "vegetarian",
+      "nut",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/006.jpg",
+    "category": "dumplings"
+  },
+  {
+    "id": "007",
+    "name": "Pan Fried Vegetarian Dumplings",
+    "nameZh": "花菜煎餃",
+    "description": "(8pcs)",
+    "price": 16.8,
+    "tags": [
+      "vegetarian",
+      "nut",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/007.jpg",
+    "category": "dumplings"
+  },
+  {
+    "id": "008",
+    "name": "Steamed Prawn and Chives Dumplings",
+    "nameZh": "韭菜鮮蝦水餃",
+    "description": "(8pcs)",
+    "price": 16.8,
+    "tags": [
+      "shellfish",
+      "seafood"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/008.jpg",
+    "category": "dumplings"
+  },
+  {
+    "id": "009",
+    "name": "Pork and Vegetables Wonton Soup",
+    "nameZh": "齊菜豬肉大餛飩",
+    "description": "(10pcs)",
+    "price": 15.8,
+    "tags": [
+      "nut",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/009.jpg",
+    "category": "dumplings"
+  },
+  {
+    "id": "010",
+    "name": "Prawn and Pork Mini Wonton Soup",
+    "nameZh": "蝦肉小餛飩",
+    "description": "(12pcs)",
+    "price": 13.8,
+    "tags": [
+      "shellfish"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/010.jpg",
+    "category": "dumplings"
+  },
+  {
+    "id": "011",
+    "name": "Shanghai Style Steamed Sticky Rice Dumplings",
+    "nameZh": "上海糯米燒賣",
+    "description": "(6pcs)",
+    "price": 14.8,
+    "tags": [
+      "nut",
+      "soy"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/011.jpg",
+    "category": "dumplings"
+  },
+  {
+    "id": "012",
+    "name": "Shanghai Style Radish Croissants With Shrimp And Ham",
+    "nameZh": "蘿蔔絲酥餅",
+    "description": "(4pcs)",
+    "price": 15.8,
+    "tags": [
+      "shellfish",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/012.jpg",
+    "category": "dumplings"
+  },
+  {
+    "id": "013",
+    "name": "Layered Cake with Jujube Paste",
+    "nameZh": "棗泥千層糕",
+    "description": "(4pcs)",
+    "price": 12.8,
+    "tags": [
+      "vegetarian",
+      "nut"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/013.jpg",
+    "category": "dumplings"
+  },
+  {
+    "id": "014",
+    "name": "Vegetarian Spring Rolls",
+    "nameZh": "素齋春卷",
+    "description": "(4pcs)",
+    "price": 10.8,
+    "tags": [
+      "vegetarian",
+      "nut",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/014.jpg",
+    "category": "dumplings"
+  },
+  {
+    "id": "015",
+    "name": "Shallots Pancake",
+    "nameZh": "蔥油餅",
+    "description": "",
+    "price": 11.8,
+    "tags": [
+      "nut"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/015.jpg",
+    "category": "dumplings"
+  },
+  {
+    "id": "016",
+    "name": "Crispy Pillow Buns",
+    "nameZh": "金色小刀切（可選蒸）",
+    "description": "(6pcs) (steamed option available)",
+    "price": 9.8,
+    "tags": [
+      "vegetarian",
+      "nut"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/016.jpg",
+    "category": "dumplings"
+  },
+  {
+    "id": "017",
+    "name": "Prawn and Chives Spring Rolls",
+    "nameZh": "韭菜鮮蝦春卷",
+    "description": "(3pcs)",
+    "price": 11.8,
+    "tags": [
+      "shellfish",
+      "seafood"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/017.jpg",
+    "category": "dumplings"
+  },
+  {
+    "id": "018",
+    "name": "Steamed Dumplings Filled With Chives, Scallop & Prawns",
+    "nameZh": "韭菜帶子虾煮餃",
+    "description": "(6pcs)",
+    "price": 16.8,
+    "tags": [
+      "vegetarian",
+      "nut",
+      "shellfish",
+      "seafood"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/018.jpg",
+    "category": "dumplings"
+  },
+  {
+    "id": "019",
+    "name": "A Bucket Of Crispy Chicken Nuggets Served with Dipping Sauce",
+    "nameZh": "小桶香炸雞 香辣 或 香甜",
+    "description": "(chilli or sweet)",
+    "price": 17.8,
+    "tags": [
+      "nut",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/019.jpg",
+    "category": "entree"
+  },
+  {
+    "id": "020",
+    "name": "A Bucket Of Crispy Mushrooms Served with Dipping Sauce",
+    "nameZh": "小桶香炸蘑菇 香辣 或 香甜",
+    "description": "(chilli or sweet)",
+    "price": 17.8,
+    "tags": [
+      "nut",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/020.jpg",
+    "category": "entree"
+  },
+  {
+    "id": "101",
+    "name": "Braised Bamboo Shoots",
+    "nameZh": "油燜春筍",
+    "description": "",
+    "price": 12.8,
+    "tags": [
+      "vegetarian",
+      "nut",
+      "soy",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/101.jpg",
+    "category": "coldDishes"
+  },
+  {
+    "id": "102",
+    "name": "Typical Shanghainese Appetizer including Dried Lily Bulbs, Black Fungus and Peanuts",
+    "nameZh": "四喜烤麸",
+    "description": "",
+    "price": 12.8,
+    "tags": [
+      "vegetarian",
+      "nut",
+      "soy",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/102.jpg",
+    "category": "coldDishes"
+  },
+  {
+    "id": "103",
+    "name": "Smoked Fish Fillet with Soy Sauce",
+    "nameZh": "上海熏魚",
+    "description": "",
+    "price": 15.8,
+    "tags": [
+      "seafood",
+      "soy"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/103.jpg",
+    "category": "coldDishes"
+  },
+  {
+    "id": "104",
+    "name": "Nanjing Style Salted Duck",
+    "nameZh": "鹽水鴨",
+    "description": "",
+    "price": 15.8,
+    "tags": [
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/104.jpg",
+    "category": "coldDishes"
+  },
+  {
+    "id": "105",
+    "name": "Boneless Poached Chicken Covered In A Mix Of Chilli And Sesame Oil With Crushed Peanuts",
+    "nameZh": "口水燙雞（去骨）",
+    "description": "",
+    "price": 15.8,
+    "tags": [
+      "chilli",
+      "sesame",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/105.jpg",
+    "category": "coldDishes"
+  },
+  {
+    "id": "106",
+    "name": "Sweet & Sour Pork Ribs",
+    "nameZh": "糖醋小排",
+    "description": "",
+    "price": 14.8,
+    "tags": [
+      "nut",
+      "soy"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/106.jpg",
+    "category": "coldDishes"
+  },
+  {
+    "id": "107",
+    "name": "Cucumber Marinated with a Minced Ginger Vinaigrette",
+    "nameZh": "蒜拖黃瓜",
+    "description": "",
+    "price": 12.8,
+    "tags": [
+      "vegetarian",
+      "nut",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/107.jpg",
+    "category": "coldDishes"
+  },
+  {
+    "id": "108",
+    "name": "Jellyfish Minced Salad",
+    "nameZh": "海蜇大拌菜",
+    "description": "",
+    "price": 12.8,
+    "tags": [
+      "soy",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/108.jpg",
+    "category": "coldDishes"
+  },
+  {
+    "id": "201",
+    "name": "Salt & Pepper Whole Lobster",
+    "nameZh": "椒鹽龍蝦",
+    "description": "",
+    "price": null,
+    "tags": [
+      "shellfish"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/201.jpg",
+    "category": "liveSeafood"
+  },
+  {
+    "id": "202",
+    "name": "Twice Cooked Whole Lobster with Ginger and Shallots Served on a Bed of Noodles",
+    "nameZh": "薑蔥龍蝦伊麵底",
+    "description": "",
+    "price": null,
+    "tags": [
+      "shellfish"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/202.jpg",
+    "category": "liveSeafood"
+  },
+  {
+    "id": "203",
+    "name": "Black Pepper Crab with Rice Cake",
+    "nameZh": "黑胡椒年糕蟹（年糕$8）",
+    "description": "(rice cakes add $8)",
+    "price": null,
+    "tags": [
+      "soy"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/203.jpg",
+    "category": "liveSeafood"
+  },
+  {
+    "id": "204",
+    "name": "Twice Fried Mud Crab Coated with Salted Egg Yolk Sauce",
+    "nameZh": "鹹蛋黃炒蟹（鹹蛋黃$10）",
+    "description": "(egg yolk sauce add $10)",
+    "price": null,
+    "tags": [
+      "shellfish"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/204.jpg",
+    "category": "liveSeafood"
+  },
+  {
+    "id": "205",
+    "name": "Twice Fried Mud Crab with Rice Cake",
+    "nameZh": "油醬年糕蟹（年糕$8）",
+    "description": "(rice cakes add $8)",
+    "price": null,
+    "tags": [
+      "soy",
+      "shellfish",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/205.jpg",
+    "category": "liveSeafood"
+  },
+  {
+    "id": "206",
+    "name": "Flash Fried Mud Crab with Vermicelli Finished in a Casserole",
+    "nameZh": "金沙粉絲蟹宴（粉絲$15）",
+    "description": "(vermicelli add $15)",
+    "price": null,
+    "tags": [
+      "soy",
+      "shellfish",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/206.jpg",
+    "category": "liveSeafood"
+  },
+  {
+    "id": "207",
+    "name": "Shanghai Sauteed Crab in Hot Spicy Sauce",
+    "nameZh": "上海香辣蟹",
+    "description": "",
+    "price": null,
+    "tags": [
+      "soy",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/207.jpg",
+    "category": "liveSeafood"
+  },
+  {
+    "id": "208",
+    "name": "Steamed Whole Barramundi with Diced Red Chilli",
+    "nameZh": "剁椒活魚",
+    "description": "",
+    "price": 43.8,
+    "tags": [
+      "chilli",
+      "chilli",
+      "chilli"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/208.jpg",
+    "category": "liveSeafood"
+  },
+  {
+    "id": "209",
+    "name": "Steamed Whole Barramundi with King Oyster Mushrooms",
+    "nameZh": "杏鮑菇活魚",
+    "description": "",
+    "price": 43.8,
+    "tags": [
+      "shellfish"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/209.jpg",
+    "category": "liveSeafood"
+  },
+  {
+    "id": "210",
+    "name": "A Very Famous Shanghainese Dish-Live Barramundi Skillfully Carved with Pine-Cone Cut and Finished in a Tangy Sweet & Sour Sauce",
+    "nameZh": "松鼠活魚",
+    "description": "",
+    "price": 43.8,
+    "tags": [
+      "vegetarian",
+      "nut",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/210.jpg",
+    "category": "liveSeafood"
+  },
+  {
+    "id": "211",
+    "name": "Whole Barramundi in Soup with Pickled Vegetables and Tofu",
+    "nameZh": "酸菜活魚砂鍋",
+    "description": "",
+    "price": 47.8,
+    "tags": [
+      "shellfish"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/211.jpg",
+    "category": "liveSeafood"
+  },
+  {
+    "id": "301",
+    "name": "Salt & Pepper King Prawns Served with Rice Crackers",
+    "nameZh": "椒鹽絕色蝦球",
+    "description": "",
+    "price": 34.8,
+    "tags": [
+      "chilli",
+      "shellfish",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/301.jpg",
+    "category": "seafood"
+  },
+  {
+    "id": "302",
+    "name": "King Prawns Flash Fried in XO Sauce Served with Vermicelli",
+    "nameZh": "XO粉絲蝦球",
+    "description": "",
+    "price": 30.8,
+    "tags": [
+      "shellfish",
+      "soy",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/302.jpg",
+    "category": "seafood"
+  },
+  {
+    "id": "303",
+    "name": "King Prawns Coated with a Salty Egg Yolk Sauce",
+    "nameZh": "鹹蛋黃蝦球",
+    "description": "",
+    "price": 35.8,
+    "tags": [
+      "shellfish",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/303.jpg",
+    "category": "seafood"
+  },
+  {
+    "id": "304",
+    "name": "Garlic King Prawns",
+    "nameZh": "蒜子蝦球",
+    "description": "",
+    "price": 34.8,
+    "tags": [
+      "shellfish"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/304.jpg",
+    "category": "seafood"
+  },
+  {
+    "id": "305",
+    "name": "Salt and Pepper Calamari",
+    "nameZh": "椒鹽鮮魷",
+    "description": "",
+    "price": 23.8,
+    "tags": [
+      "shellfish",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/305.jpg",
+    "category": "seafood"
+  },
+  {
+    "id": "306",
+    "name": "Fillet of Fish Braised in Sichuan Chilli Oil",
+    "nameZh": "水煮黑魚片",
+    "description": "it looks spicy yet it's aromatic with medium heat",
+    "price": 30.8,
+    "tags": [
+      "chilli",
+      "chilli",
+      "shellfish",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/306.jpg",
+    "category": "seafood"
+  },
+  {
+    "id": "307",
+    "name": "Golden Soup with Pickled Fish Slices",
+    "nameZh": "金湯酸菜魚片",
+    "description": "",
+    "price": 36.8,
+    "tags": [
+      "chilli",
+      "shellfish",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/307.jpg",
+    "category": "seafood"
+  },
+  {
+    "id": "308",
+    "name": "Sour Soup with Tomato Fish Slices",
+    "nameZh": "酸湯番茄魚片",
+    "description": "",
+    "price": 36.8,
+    "tags": [
+      "chilli",
+      "shellfish",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/308.jpg",
+    "category": "seafood"
+  },
+  {
+    "id": "401",
+    "name": "Peking Style Wok Fried Shredded Pork, best to eat with pancake wrap",
+    "nameZh": "京醬肉絲（夾餅選配$6）",
+    "description": "(pancake/8pcs add $6)",
+    "price": 24.8,
+    "tags": [
+      "vegetarian",
+      "nut",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/401.jpg",
+    "category": "pork"
+  },
+  {
+    "id": "402",
+    "name": "Slow Cooked Pork Belly Braised with Quail Eggs",
+    "nameZh": "葫蘆吉香紅燒肉",
+    "description": "",
+    "price": 30.8,
+    "tags": [
+      "vegetarian",
+      "nut",
+      "egg",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/402.jpg",
+    "category": "pork"
+  },
+  {
+    "id": "403",
+    "name": "Sweet & Sour Pork",
+    "nameZh": "菠蘿咕嚕肉",
+    "description": "",
+    "price": 24.8,
+    "tags": [
+      "shellfish"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/403.jpg",
+    "category": "pork"
+  },
+  {
+    "id": "404",
+    "name": "Sichuan Style Shredded Pork, recommended to eat with lotus buns",
+    "nameZh": "魚香肉絲（荷葉夾選配$6）",
+    "description": "(lotus buns/6pcs add $6)",
+    "price": 24.8,
+    "tags": [
+      "chilli",
+      "chilli",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/404.jpg",
+    "category": "pork"
+  },
+  {
+    "id": "405",
+    "name": "Farmer's Style Stir Fried Spicy Pork With Bamboo Shoots",
+    "nameZh": "農家小炒肉（黑毛豬）",
+    "description": "",
+    "price": 25.8,
+    "tags": [
+      "chilli",
+      "chilli",
+      "soy",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/405.jpg",
+    "category": "pork"
+  },
+  {
+    "id": "406",
+    "name": "Salt and Pepper Pork Ribs",
+    "nameZh": "椒鹽排骨",
+    "description": "",
+    "price": 25.8,
+    "tags": [
+      "soy",
+      "shellfish"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/406.jpg",
+    "category": "pork"
+  },
+  {
+    "id": "407",
+    "name": "Braised Pork Ball in Soy Sauce",
+    "nameZh": "上海獅子頭",
+    "description": "(3pcs)",
+    "price": 24.8,
+    "tags": [
+      "vegetarian",
+      "nut",
+      "gluten",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/407.jpg",
+    "category": "pork"
+  },
+  {
+    "id": "501",
+    "name": "Kung Pao Diced Chicken with Peanuts in a Sweet Chilli Sauce",
+    "nameZh": "宮保雞丁",
+    "description": "",
+    "price": 24.8,
+    "tags": [
+      "chilli",
+      "nut",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/501.jpg",
+    "category": "poultry"
+  },
+  {
+    "id": "502",
+    "name": "Shangtung Crispy Chicken",
+    "nameZh": "秘製山東雞",
+    "description": "",
+    "price": 24.8,
+    "tags": [
+      "vegetarian",
+      "chilli",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/502.jpg",
+    "category": "poultry"
+  },
+  {
+    "id": "503",
+    "name": "Honey Chicken",
+    "nameZh": "蜜糖鸡",
+    "description": "",
+    "price": 24.8,
+    "tags": [
+      "shellfish"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/503.jpg",
+    "category": "poultry"
+  },
+  {
+    "id": "504",
+    "name": "Two Course Roasted Duck",
+    "nameZh": "天同烤鴨两食",
+    "description": "1st Course: Whole Roasted Duck - 2nd Course: Stir Fried Rice/Noodles Add $10",
+    "price": 78.0,
+    "tags": [
+      "vegetarian",
+      "nut",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/504.jpg",
+    "category": "poultry"
+  },
+  {
+    "id": "505",
+    "name": "Signature Roasted Duck/Half",
+    "nameZh": "天同烤鴨/半隻",
+    "description": "",
+    "price": 39.0,
+    "tags": [
+      "signature",
+      "nut",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/505.jpg",
+    "category": "poultry"
+  },
+  {
+    "id": "601",
+    "name": "Flash Fried Diced Wagyu Steak with Black Pepper",
+    "nameZh": "極品黑粒牛仔粒",
+    "description": "",
+    "price": 38.8,
+    "tags": [
+      "chilli",
+      "soy"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/601.jpg",
+    "category": "beef"
+  },
+  {
+    "id": "602",
+    "name": "Beef Braised In Sichuan Chilli Oil",
+    "nameZh": "水煮牛肉",
+    "description": "it looks spicy yet it's aromatic with medium heat onion",
+    "price": 27.8,
+    "tags": [
+      "chilli",
+      "chilli",
+      "chilli"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/602.jpg",
+    "category": "beef"
+  },
+  {
+    "id": "603",
+    "name": "Flash Fried Diced Wagyu Steak Marinated in Wasabi",
+    "nameZh": "芥末牛仔粒",
+    "description": "",
+    "price": 38.8,
+    "tags": [
+      "vegetarian",
+      "chilli",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/603.jpg",
+    "category": "beef"
+  },
+  {
+    "id": "604",
+    "name": "Paper Wrapped Tender Beef and Onions",
+    "nameZh": "紙包生焗小牛肉",
+    "description": "",
+    "price": 26.8,
+    "tags": [
+      "shellfish",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/604.jpg",
+    "category": "beef"
+  },
+  {
+    "id": "605",
+    "name": "Sichuan Style Spicy Beef",
+    "nameZh": "双椒牛肉（夾餅$6）",
+    "description": "Recommend to eat with homemade pancake (add pancake $6)",
+    "price": 26.8,
+    "tags": [
+      "chilli",
+      "chilli"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/605.jpg",
+    "category": "beef"
+  },
+  {
+    "id": "606",
+    "name": "Work Fried Beef Slices with Spring Onion",
+    "nameZh": "蔥爆牛肉（夾餅$6）",
+    "description": "(add pancake $6)",
+    "price": 26.8,
+    "tags": [
+      "soy"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/606.jpg",
+    "category": "beef"
+  },
+  {
+    "id": "607",
+    "name": "Lamb Ribs Smoked in Spices",
+    "nameZh": "風味羊排",
+    "description": "",
+    "price": 30.8,
+    "tags": [
+      "vegetarian",
+      "soy"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/607.jpg",
+    "category": "lamb"
+  },
+  {
+    "id": "608",
+    "name": "Flash Fried Lamb Slices with Cumin",
+    "nameZh": "孜然羊肉",
+    "description": "",
+    "price": 30.8,
+    "tags": [
+      "chilli",
+      "chilli",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/608.jpg",
+    "category": "lamb"
+  },
+  {
+    "id": "609",
+    "name": "Flash Fried Lamb with Spring Onion",
+    "nameZh": "蔥爆羊肉",
+    "description": "",
+    "price": 30.8,
+    "tags": [
+      "soy",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/609.jpg",
+    "category": "lamb"
+  },
+  {
+    "id": "610",
+    "name": "Mongolian Lamb",
+    "nameZh": "蒙古羊肉",
+    "description": "",
+    "price": 30.8,
+    "tags": [
+      "soy"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/610.jpg",
+    "category": "lamb"
+  },
+  {
+    "id": "701",
+    "name": "Double Fried Green Beans with Pork Mince and Dried Shrimps",
+    "nameZh": "乾煸四季豆",
+    "description": "",
+    "price": 19.8,
+    "tags": [
+      "shellfish",
+      "gluten",
+      "seafood"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/701.jpg",
+    "category": "vegetables"
+  },
+  {
+    "id": "702",
+    "name": "Wok Fried Assorted Mushrooms",
+    "nameZh": "乾鍋小炒百菌",
+    "description": "",
+    "price": 23.8,
+    "tags": [
+      "chilli",
+      "soy",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/702.jpg",
+    "category": "vegetables"
+  },
+  {
+    "id": "703",
+    "name": "Eggplant and Pork Mince Braised with Sweet Chilli and Vinegar",
+    "nameZh": "魚香茄子煲",
+    "description": "",
+    "price": 19.8,
+    "tags": [
+      "chilli",
+      "soy",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/703.jpg",
+    "category": "vegetables"
+  },
+  {
+    "id": "704",
+    "name": "Twice Fried Eggplant with Garlic & Coriander",
+    "nameZh": "蒜蓉醬茄子",
+    "description": "",
+    "price": 19.8,
+    "tags": [
+      "shellfish",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/704.jpg",
+    "category": "vegetables"
+  },
+  {
+    "id": "705",
+    "name": "Flash Fried Broccoli & Seasonal Vegetables",
+    "nameZh": "西蘭花炒雜菜",
+    "description": "",
+    "price": 20.8,
+    "tags": [
+      "vegetarian"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/705.jpg",
+    "category": "vegetables"
+  },
+  {
+    "id": "706",
+    "name": "Stir-Fried Chinese Broccoli With Oyster Sauce",
+    "nameZh": "蠔油芥蘭",
+    "description": "",
+    "price": 20.8,
+    "tags": [
+      "soy"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/706.jpg",
+    "category": "vegetables"
+  },
+  {
+    "id": "707",
+    "name": "Ma Po Tofu-Silken Tofu Braised With Minced Pork And A Chilli Bean Sauce",
+    "nameZh": "麻婆豆腐",
+    "description": "",
+    "price": 21.8,
+    "tags": [
+      "chilli",
+      "soy",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/707.jpg",
+    "category": "vegetables"
+  },
+  {
+    "id": "708",
+    "name": "Salt & Pepper Tofu",
+    "nameZh": "椒鹽豆腐",
+    "description": "",
+    "price": 20.8,
+    "tags": [
+      "vegetarian",
+      "chilli"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/708.jpg",
+    "category": "vegetables"
+  },
+  {
+    "id": "801",
+    "name": "Yangzhou Style Fried Rice with Ham, School Prawns, Egg & Peas",
+    "nameZh": "揚州炒飯",
+    "description": "",
+    "price": 16.8,
+    "tags": [
+      "soy",
+      "gluten",
+      "shellfish"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/801.jpg",
+    "category": "friedRice"
+  },
+  {
+    "id": "802",
+    "name": "Shanghainese Style Fried Rice with Porl Lard, Diced Salted Pork and Vegetables",
+    "nameZh": "上海咸肉菜飯",
+    "description": "",
+    "price": 16.8,
+    "tags": [
+      "soy",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/802.jpg",
+    "category": "friedRice"
+  },
+  {
+    "id": "803",
+    "name": "Diced Chicken Fried Rice in Xo Sauce",
+    "nameZh": "XO鸡粒炒饭",
+    "description": "(contain pork)",
+    "price": 17.8,
+    "tags": [
+      "chilli",
+      "soy",
+      "gluten",
+      "shellfish",
+      "soy"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/803.jpg",
+    "category": "friedRice"
+  },
+  {
+    "id": "804",
+    "name": "Vegetarian Fried Rice",
+    "nameZh": "素炒飯",
+    "description": "",
+    "price": 16.8,
+    "tags": [
+      "gluten",
+      "vegetarian"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/804.jpg",
+    "category": "friedRice"
+  },
+  {
+    "id": "805",
+    "name": "Special Spicy Fried Rice With Diced Chicken, School Prawns, Ham & Bean Sprout",
+    "nameZh": "香辣特别炒飯",
+    "description": "",
+    "price": 16.8,
+    "tags": [
+      "vegetarian",
+      "chilli",
+      "shellfish"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/805.jpg",
+    "category": "friedRice"
+  },
+  {
+    "id": "806",
+    "name": "Our Famous Shanghainese Fried Noodles with Shredded Pork & Cabbage",
+    "nameZh": "上海粗炒",
+    "description": "",
+    "price": 17.8,
+    "tags": [
+      "vegetarian",
+      "gluten",
+      "shellfish",
+      "sesame"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/806.jpg",
+    "category": "friedNoodle"
+  },
+  {
+    "id": "807",
+    "name": "Combination Fried Noodles with Prawns, Beef And Vegetables",
+    "nameZh": "什燴炒麵",
+    "description": "",
+    "price": 19.8,
+    "tags": [
+      "gluten",
+      "seafood"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/807.jpg",
+    "category": "friedNoodle"
+  },
+  {
+    "id": "808",
+    "name": "Vegetarian Fried Noodles",
+    "nameZh": "羅漢素炒麵",
+    "description": "",
+    "price": 17.8,
+    "tags": [
+      "vegetarian",
+      "gluten",
+      "sesame"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/808.jpg",
+    "category": "friedNoodle"
+  },
+  {
+    "id": "809",
+    "name": "Wok Fried Rice Cakes with Shredded Pork And Vegetables",
+    "nameZh": "齊菜肉絲炒年糕",
+    "description": "",
+    "price": 17.8,
+    "tags": [
+      "gluten",
+      "soy",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/809.jpg",
+    "category": "friedNoodle"
+  },
+  {
+    "id": "810",
+    "name": "Wok Fried Rice Cakes with Shredded Pork And Chinese Cabbage",
+    "nameZh": "白菜肉絲炒年糕",
+    "description": "",
+    "price": 17.8,
+    "tags": [
+      "gluten",
+      "soy",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/810.jpg",
+    "category": "friedNoodle"
+  },
+  {
+    "id": "811",
+    "name": "Braised Beef Brisket Noodle Soup",
+    "nameZh": "牛腩湯麵",
+    "description": "",
+    "price": 17.8,
+    "tags": [
+      "gluten",
+      "soy",
+      "gluten"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/811.jpg",
+    "category": "friedNoodle"
+  },
+  {
+    "id": "901",
+    "name": "Shanghai Style Salted Pork & Bamboo Shoot Soup",
+    "nameZh": "饂飩鲜",
+    "description": "",
+    "price": 25.8,
+    "tags": [
+      "gluten",
+      "soy"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/901.jpg",
+    "category": "soup"
+  },
+  {
+    "id": "902",
+    "name": "Hot & Sour Soup",
+    "nameZh": "酸辣湯",
+    "description": "",
+    "price": 7.8,
+    "tags": [
+      "gluten",
+      "chilli",
+      "sesame"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/902.jpg",
+    "category": "soup"
+  },
+  {
+    "id": "903",
+    "name": "Chicken & Sweet Corn Soup",
+    "nameZh": "雞茸粟米濃湯",
+    "description": "",
+    "price": 7.8,
+    "tags": [
+      "gluten",
+      "vegetarian"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/903.jpg",
+    "category": "soup"
+  },
+  {
+    "id": "1001",
+    "name": "Mango Pancakes",
+    "nameZh": "芒果班戟",
+    "description": "",
+    "price": 7.5,
+    "tags": [
+      "vegetarian",
+      "dairy"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1001.jpg",
+    "category": "dessert"
+  },
+  {
+    "id": "1002",
+    "name": "Seasame Glutious Rice Balls in Fermaented Rice Syrup (S)",
+    "nameZh": "酒釀芝麻小湯圓（小）",
+    "description": "",
+    "price": 9.8,
+    "tags": [
+      "gluten",
+      "sesame"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1002.jpg",
+    "category": "dessert"
+  },
+  {
+    "id": "1007",
+    "name": "Sesame Glitious Rice Balls in Fermaented Rice Syrup (L)",
+    "nameZh": "酒釀芝麻小湯圓（大）",
+    "description": "",
+    "price": 26.8,
+    "tags": [
+      "gluten",
+      "sesame"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1007.jpg",
+    "category": "dessert"
+  },
+  {
+    "id": "1003",
+    "name": "Sticky Rice Filled with Eight Treasure, A Traditional Delight",
+    "nameZh": "八寶飯",
+    "description": "",
+    "price": 13.8,
+    "tags": [
+      "gluten",
+      "lard"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1003.jpg",
+    "category": "dessert"
+  },
+  {
+    "id": "1006",
+    "name": "Golden Bean Paste Rice Pancake",
+    "nameZh": "黃金豆沙大餅",
+    "description": "",
+    "price": 12.8,
+    "tags": [
+      "gluten",
+      "sesame"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1006.jpg",
+    "category": "dessert"
+  },
+  {
+    "id": "1101",
+    "name": "Steamed Jasmine Rice/Bowl",
+    "nameZh": "米飯/碗",
+    "description": "",
+    "price": 3.0,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1101.jpg",
+    "category": "miscellaneous"
+  },
+  {
+    "id": "1102",
+    "name": "Steamed Jasmine Rice/Bucket",
+    "nameZh": "米飯/桶",
+    "description": "",
+    "price": 9.0,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1102.jpg",
+    "category": "miscellaneous"
+  },
+  {
+    "id": "1103",
+    "name": "Pancake/8pcs",
+    "nameZh": "夾餅",
+    "description": "",
+    "price": 6.0,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1103.jpg",
+    "category": "miscellaneous"
+  },
+  {
+    "id": "1104",
+    "name": "Lotus Bun/6pcs",
+    "nameZh": "荷叶夹",
+    "description": "",
+    "price": 6.0,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1104.jpg",
+    "category": "miscellaneous"
+  },
+  {
+    "id": "1105",
+    "name": "Fresh Cut Chilli",
+    "nameZh": "鮮椒丝",
+    "description": "",
+    "price": 0.5,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1105.jpg",
+    "category": "miscellaneous"
+  },
+  {
+    "id": "1106",
+    "name": "Shredded Ginger",
+    "nameZh": "姜丝",
+    "description": "",
+    "price": 0.5,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1106.jpg",
+    "category": "miscellaneous"
+  },
+  {
+    "id": "1107",
+    "name": "Paper Bag",
+    "nameZh": "纸袋",
+    "description": "",
+    "price": 0.5,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1107.jpg",
+    "category": "miscellaneous"
+  },
+  {
+    "id": "1108",
+    "name": "Takeaway Container",
+    "nameZh": "外卖盒",
+    "description": "",
+    "price": 0.5,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1108.jpg",
+    "category": "miscellaneous"
+  },
+  {
+    "id": "1201",
+    "name": "Lemon Lime & Bitters",
+    "nameZh": "古榕檸檬水",
+    "description": "",
+    "price": 6.8,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1201.jpg",
+    "category": "housemadeBeverages"
+  },
+  {
+    "id": "1202",
+    "name": "Watermelon Frappe",
+    "nameZh": "西瓜冰沙",
+    "description": "",
+    "price": 7.8,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1202.jpg",
+    "category": "housemadeBeverages"
+  },
+  {
+    "id": "1203",
+    "name": "Mango Frappe",
+    "nameZh": "芒果冰沙",
+    "description": "",
+    "price": 7.8,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1203.jpg",
+    "category": "housemadeBeverages"
+  },
+  {
+    "id": "1204",
+    "name": "Milk Tea (Cold/Hot)",
+    "nameZh": "奶茶（冷/熱）",
+    "description": "",
+    "price": 5.8,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1204.jpg",
+    "category": "housemadeBeverages"
+  },
+  {
+    "id": "1205",
+    "name": "Ice Cream Milk Tea",
+    "nameZh": "冰淇淋奶茶",
+    "description": "",
+    "price": 8.8,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1205.jpg",
+    "category": "housemadeBeverages"
+  },
+  {
+    "id": "1206",
+    "name": "Lychee Mango Frappe",
+    "nameZh": "荔枝芒果冰沙",
+    "description": "",
+    "price": 7.8,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1206.jpg",
+    "category": "housemadeBeverages"
+  },
+  {
+    "id": "1207",
+    "name": "Signature Lemon Drink",
+    "nameZh": "招牌檸檬飲",
+    "description": "",
+    "price": 7.8,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1207.jpg",
+    "category": "housemadeBeverages"
+  },
+  {
+    "id": "1208",
+    "name": "Citron Tea (Cold/Hot)",
+    "nameZh": "柚子茶（冷/熱）",
+    "description": "",
+    "price": 5.8,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1208.jpg",
+    "category": "housemadeBeverages"
+  },
+  {
+    "id": "1209",
+    "name": "Mint Lychee Juice",
+    "nameZh": "薄荷荔枝飲",
+    "description": "",
+    "price": 7.8,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1209.jpg",
+    "category": "housemadeBeverages"
+  },
+  {
+    "id": "1210",
+    "name": "Soy Bean Milk (Cold/Hot)",
+    "nameZh": "健康豆奶（冷/熱）",
+    "description": "",
+    "price": 3.8,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1210.jpg",
+    "category": "coldBeverages"
+  },
+  {
+    "id": "1211",
+    "name": "Coca Cola",
+    "nameZh": "可樂",
+    "description": "",
+    "price": 3.8,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1211.jpg",
+    "category": "coldBeverages"
+  },
+  {
+    "id": "1212",
+    "name": "Coke Zero",
+    "nameZh": "零度可樂",
+    "description": "",
+    "price": 3.8,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1212.jpg",
+    "category": "coldBeverages"
+  },
+  {
+    "id": "1213",
+    "name": "Prune Juice",
+    "nameZh": "酸梅湯",
+    "description": "",
+    "price": 3.8,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1213.jpg",
+    "category": "coldBeverages"
+  },
+  {
+    "id": "1214",
+    "name": "Sprite",
+    "nameZh": "雪碧",
+    "description": "",
+    "price": 3.8,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1214.jpg",
+    "category": "coldBeverages"
+  },
+  {
+    "id": "1215",
+    "name": "Fanta",
+    "nameZh": "芬達",
+    "description": "",
+    "price": 3.8,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1215.jpg",
+    "category": "coldBeverages"
+  },
+  {
+    "id": "1216",
+    "name": "Spring Water",
+    "nameZh": "礦泉水",
+    "description": "",
+    "price": 3.8,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1216.jpg",
+    "category": "coldBeverages"
+  },
+  {
+    "id": "1217",
+    "name": "Sparkling Water",
+    "nameZh": "气泡水",
+    "description": "",
+    "price": 3.8,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1217.jpg",
+    "category": "coldBeverages"
+  },
+  {
+    "id": "1218",
+    "name": "Genki Forest Sparkling Water",
+    "nameZh": "元气森林",
+    "description": "",
+    "price": 4.8,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1218.jpg",
+    "category": "coldBeverages"
+  },
+  {
+    "id": "1124",
+    "name": "Jasmine Tea / per pot",
+    "nameZh": "香片",
+    "description": "",
+    "price": 5.5,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1124.jpg",
+    "category": "hotBeverages"
+  },
+  {
+    "id": "1125",
+    "name": "Oolong Tea / per pot",
+    "nameZh": "乌龙茶",
+    "description": "",
+    "price": 5.5,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1125.jpg",
+    "category": "hotBeverages"
+  },
+  {
+    "id": "1126",
+    "name": "Chrysanthemum / per pot",
+    "nameZh": "菊花",
+    "description": "",
+    "price": 5.5,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1126.jpg",
+    "category": "hotBeverages"
+  },
+  {
+    "id": "1127",
+    "name": "Tie Guan Yin / per pot",
+    "nameZh": "鐵觀音",
+    "description": "",
+    "price": 5.5,
+    "tags": [],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "images/1127.jpg",
+    "category": "hotBeverages"
+  }
+]
