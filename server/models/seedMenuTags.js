@@ -1,34 +1,3 @@
-// import MenuTag from './MenuTag.js'; // 注意 .js 后缀
-
-// const tags = [
-//   { key: 'signature', label: '招牌', icon: '❤️' },
-//   { key: 'chilli', label: '辣', icon: '🌶️' },
-//   { key: 'nut', label: '坚果', icon: '🥜' },
-//   { key: 'egg', label: '蛋', icon: '🥚' },
-//   { key: 'sesame', label: '芝麻', icon: '🌸' },
-//   { key: 'lard', label: '猪油', icon: '🥓' },
-//   { key: 'oyster', label: '蚝油', icon: '🦪' },
-//   { key: 'vegetarian', label: '素食', icon: '🥬' },
-//   { key: 'gluten', label: '含面筋', icon: '🌾' },
-//   { key: 'soy', label: '大豆', icon: '🌱' },
-//   { key: 'dairy', label: '乳制品', icon: '🥛' },
-//   { key: 'shellfish', label: '甲壳类', icon: '🦐' },
-//   { key: 'seafood', label: '海鲜', icon: '🐟' },
-// ];
-
-// mongoose
-//   .connect(process.env.MONGO_URI + '/order_linong')
-//   .then(async () => {
-//     await MenuTag.deleteMany({});
-//     await MenuTag.insertMany(tags);
-//     console.log('✅ Tags seeded!');
-//     process.exit();
-//   })
-//   .catch((err) => {
-//     console.error('❌ Failed to seed tags:', err);
-//     process.exit(1);
-//   });
-
 import mongoose from 'mongoose';
 import MenuTag from './MenuTag.js'; // 使用 ES Module 的 import
 import dotenv from 'dotenv';

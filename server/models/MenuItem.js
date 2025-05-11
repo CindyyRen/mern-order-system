@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model, Types } from 'mongoose';
 
 const menuItemSchema = new Schema({
   itemCode: { type: String, required: true, unique: true },
@@ -14,7 +14,11 @@ const menuItemSchema = new Schema({
   spiceLevel: Number,
   available: Boolean,
   image: String,
-  category: String,
+  category: {
+    type: Types.ObjectId,
+    ref: 'Category',
+    required: true,
+  },
 });
 
 export default model('MenuItem', menuItemSchema);
