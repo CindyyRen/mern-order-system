@@ -5,7 +5,7 @@ const router = express.Router();
 
 // 创建新订单
 router.post('/orders', async (req, res) => {
-  const { items, totalPrice, userId } = req.body;
+  const { items, totalPrice} = req.body;
 
   try {
     const newOrder = new Order({ items, totalPrice, userId });

@@ -7,18 +7,24 @@ import CartPage from './pages/CartPage';
 import ProfilePage from './pages/ProfilePage';
 import SearchPage from './pages/SearchPage';
 import OrdersPage from './pages/OrderPage';
+import ZongziDetail from './pages/ZongziDetailPage';
+import CategoryDetail from './pages/CategoryDetailPage';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
     <Router>
+      <Toaster position="bottom-right" />
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/category/:categorySlug" element={<CategoryPage />} />
+          <Route path="/categories/:categorySlug" element={<CategoryPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/orders" element={<OrdersPage />} />
+          <Route path="/zongzi" element={<ZongziDetail />} />
+          <Route path="/categories" element={<CategoryDetail />} />
         </Routes>
       </Layout>
     </Router>

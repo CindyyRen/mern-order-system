@@ -1,0 +1,83 @@
+// 硬编码的粽子数据
+export const zongziData = {
+    豆沙粽: {
+      name: '经典豆沙粽-RED BEAN',
+      price: 12.8,
+      originalPrice: 15.0,
+      image: '/api/placeholder/400/300',
+      description:
+        'Made with premium red bean paste, smooth and sweet, combined with soft glutinous rice. A must-have traditional treat for the Dragon Boat Festival.',
+      ingredients: [
+        'Premium glutinous rice',
+        'Red bean paste',
+        'Bamboo leaves',
+        'Cotton string',
+      ],
+      nutrition: {
+        calories: '280',
+        protein: '6g',
+        carbs: '58g',
+        fat: '2g',
+      },
+      rating: 4.8,
+      reviews: 156,
+      cookTime: '2小时',
+      difficulty: 'Traditional craftsmanship',
+      tags: ['Vegetarian', 'Traditional', 'Sweet'],
+    },
+    鲜肉粽: {
+      name: '香浓鲜肉粽-PORK',
+      price: 16.8,
+      originalPrice: 19.0,
+      image: '/api/placeholder/400/300',
+      description:
+        'Based on the savory pork zongzi, this deluxe version adds a salted egg yolk. Richly layered flavors with runny yolk and juicy meat.',
+      ingredients: [
+        'Premium glutinous rice',
+        'Pork belly',
+        'Salted egg yolk',
+        'Light soy sauce',
+        'Dark soy sauce',
+        'Cooking wine',
+        'Bamboo leaves',
+      ],
+      nutrition: {
+        calories: '350',
+        protein: '18g',
+        carbs: '45g',
+        fat: '12g',
+      },
+      rating: 4.9,
+      reviews: 203,
+      cookTime: '3小时',
+      difficulty: 'Traditional craftsmanship',
+      tags: ['Deluxe', 'Salted egg yolk', 'Savory', 'Popular'],
+    },
+    鲜肉蛋黄粽: {
+      name: '鲜肉蛋黄粽-PORK & EGG',
+      price: 22.8,
+      originalPrice: 26.0,
+      image: '/api/placeholder/400/300',
+      description:
+        'Based on the savory pork zongzi, this deluxe version adds a salted egg yolk. Richly layered flavors with runny yolk and juicy meat.',
+      ingredients: [
+        'Premium glutinous rice',
+        'Pork belly',
+        'Light soy sauce',
+        'Dark soy sauce',
+        'Cooking wine',
+        'Bamboo leaves',
+      ],
+      nutrition: {
+        calories: '420',
+        protein: '22g',
+        carbs: '48g',
+        fat: '18g',
+      },
+      rating: 4.9,
+      reviews: 189,
+      cookTime: '3.5小时',
+      difficulty: 'Traditional craftsmanship',
+      tags: ['Deluxe', 'Salted egg yolk', 'Savory', 'Popular'],
+    },
+  }
