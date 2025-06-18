@@ -19,14 +19,16 @@ const CartPage = () => {
   const cartItems = useSelector((state) => state.cart.items);
   const [loading, setLoading] = useState(false);
 
-  const handleRemove = (id) => {
-    dispatch(removeItemFromCart(id));
+  const handleRemove = (_id) => {
+    console.log('handleRemove called with id:', _id); // 调试用
+    console.log('Current cart items:', cartItems); // 调试用
+    dispatch(removeItemFromCart(_id));
     toast.success('商品已从购物车移除');
   };
 
-  const handleQuantityChange = (id, newQuantity) => {
+  const handleQuantityChange = (_id, newQuantity) => {
     if (newQuantity < 1) return; // 不允许数量小于1
-    dispatch(updateItemQuantity({ id, quantity: newQuantity }));
+    dispatch(updateItemQuantity({ _id, quantity: newQuantity }));
   };
 
   // 计算总价
@@ -47,7 +49,8 @@ const CartPage = () => {
     const orderData = {
       items: cartItems.map((item) => ({
         menu_item_id: item._id, // 假设这里id对应菜单商品id
-        name: item.nameCn, // 或者你想传中文名还是英文名都可以
+        nameCn: item.nameCn,
+        nameEn: item.nameEn,
         price: item.price,
         quantity: item.quantity,
       })),
