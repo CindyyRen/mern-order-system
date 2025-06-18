@@ -6,6 +6,7 @@ import { CheckCircle } from 'lucide-react';
 import {
   removeItemFromCart,
   updateItemQuantity,
+  clearCart,
 } from '../features/cart/cartSlice'; // 假设你有这两个 action
 import { toast } from 'react-hot-toast';
 const diningOptions = [
@@ -79,7 +80,8 @@ const CartPage = () => {
 
       const data = await res.json();
       toast.success('订单提交成功！订单号：' + data.order.order_number);
-      // 这里可以清空购物车，跳转页面等操作
+      // 关键：清空购物车
+      dispatch(clearCart());
     } catch (error) {
       toast.error('下单出错: ' + error.message);
     } finally {
