@@ -42,6 +42,7 @@ const Layout = ({ children }) => {
   const currentPath = location.pathname;
   const isHomePage = currentPath === '/';
   const isCategoryDetailPage = currentPath.startsWith('/categories/');
+  const isOrderPage = currentPath === '/orders'; // 可根据实际路径调整
 
   const currentCategoryId = useMemo(() => {
     if (isCategoryDetailPage) {
@@ -118,12 +119,14 @@ const Layout = ({ children }) => {
         {/* Desktop */}
         <div className="hidden md:block">
           <div className="flex">
-            <SidebarDesktopCategories
-              activeCategory={currentCategoryId}
-              categories={categories}
-              onCategoryClick={handleDesktopCategoryClick}
-              onShowAllCategories={() => navigate('/categories')}
-            />
+            {!isOrderPage && (
+              <SidebarDesktopCategories
+                activeCategory={currentCategoryId}
+                categories={categories}
+                onCategoryClick={handleDesktopCategoryClick}
+                onShowAllCategories={() => navigate('/categories')}
+              />
+            )}
             <div className="flex-1 p-4 md:p-6">{renderDesktopContent()}</div>
           </div>
         </div>

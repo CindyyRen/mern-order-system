@@ -1,0 +1,121 @@
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
+// 异步下单请求
+export const placeOrder = createAsyncThunk(
+  'orders/placeOrder',
+  async (orderData, thunkAPI) => {
+    try {
+      const res = await fetch('http://localhost:5000/api/orders', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderData),
+      });
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.message || '下单失败');
+      }
+      const data = await res.json();
+      return data; // 返回下单结果，比如订单号等
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const fetchOrders = createAsyncThunk(
+  'order/fetchOrders',
+  async (_, thunkAPI) => {
+    try {
+      const res = await fetch('http://localhost:5000/api/orders');
+      if (!res.ok) {
+        throw new Error('获取订单失败');
+      }
+      const data = await res.json();
+      return data.orders;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateOrder = createAsyncThunk(
+  'orders/updateOrder',
+  async ({ id, updates }, thunkAPI) => {
+    const res = await fetch(`http://localhost:5000/api/orders/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updates),
+    });
+    if (!res.ok) throw new Error('更新失败');
+    return await res.json();
+  }
+);
+
+const ordersSlice = createSlice({
+  name: 'orders',
+  initialState: {
+    currentOrder: null,
+    list: [], // ✅ 订单列表
+    loading: false,
+    error: null,
+  },
+  reducers: {
+    clearOrderState(state) {
+      state.currentOrder = null;
+      state.loading = false;
+      state.error = null;
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(placeOrder.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(placeOrder.fulfilled, (state, action) => {
+        state.loading = false;
+        state.currentOrder = action.payload;
+      })
+      .addCase(placeOrder.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || '下单失败';
+      })
+      .addCase(fetchOrders.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchOrders.fulfilled, (state, action) => {
+        state.loading = false;
+        state.list = action.payload;
+      })
+      .addCase(fetchOrders.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || '请求失败';
+      })
+      .addCase(updateOrder.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(updateOrder.fulfilled, (state, action) => {
+        state.loading = false;
+        const updatedOrder = action.payload;
+
+        const index = state.list.findIndex(
+          (order) => order._id === updatedOrder._id
+        );
+        if (index !== -1) {
+          state.list[index] = updatedOrder;
+        }
+
+        if (state.currentOrder && state.currentOrder._id === updatedOrder._id) {
+          state.currentOrder = updatedOrder;
+        }
+      })
+      .addCase(updateOrder.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || '更新订单失败';
+      });
+  },
+});
+
+export const { clearOrderState } = ordersSlice.actions;
+export default ordersSlice.reducer;

@@ -1,8 +1,12 @@
 import { ShoppingCart, User } from 'lucide-react';
 import Link from '../Link';
 import { desktopNavLinks } from '@/constants/desktopNavLinks';
+import { useSelector } from 'react-redux';
 
 const HeaderDesktop = () => {
+  const cart = useSelector((state) => state.cart.items); // 假设你用 Redux 管理购物车
+  const itemCount = cart.length; // 购物车里商品数量
+  console.log(itemCount);
   return (
     <header className="hidden md:block sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container flex h-16 items-center justify-between">
@@ -28,7 +32,7 @@ const HeaderDesktop = () => {
           >
             <ShoppingCart />
             <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-orange-500 text-[10px] font-medium text-white">
-              3
+              {itemCount}
             </span>
             <span className="sr-only">购物车</span>
           </Link>
