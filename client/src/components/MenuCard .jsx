@@ -8,8 +8,8 @@ import { addItemToCart, removeItemFromCart } from '../features/cart/cartSlice';
 
 const MenuCard = ({ item }) => {
   const dispatch = useDispatch();
-  const cartItems = useSelector((state) => state.cart.items);
-  console.log(cartItems);
+  // const cartItems = useSelector((state) => state.cart.items);
+  // console.log(cartItems);
   const handleAddToCart = () => {
     dispatch(addItemToCart(item));
     toast.success('已加入购物车！');

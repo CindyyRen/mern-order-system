@@ -23,14 +23,32 @@ export const placeOrder = createAsyncThunk(
 );
 export const fetchOrders = createAsyncThunk(
   'order/fetchOrders',
-  async (_, thunkAPI) => {
+  async (
+    { page = 1, limit = 10, date, search, sortField, sortOrder },
+    thunkAPI
+  ) => {
     try {
-      const res = await fetch('http://localhost:5000/api/orders');
+      const params = new URLSearchParams();
+      params.set('page', page);
+      params.set('limit', limit);
+      if (date) params.set('date', date);
+      if (search) params.set('search', search);
+      if (sortField) params.set('sortField', sortField);
+      if (sortOrder) params.set('sortOrder', sortOrder);
+
+      const res = await fetch(
+        `http://localhost:5000/api/orders?${params.toString()}`
+      );
       if (!res.ok) {
         throw new Error('获取订单失败');
       }
       const data = await res.json();
-      return data.orders;
+      // console.log(data.orders, data.totalCount);
+      return {
+        orders: data.orders,
+        totalCount: data.totalCount,
+        currentPage: page,
+      };
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -53,9 +71,9 @@ export const updateOrder = createAsyncThunk(
 const ordersSlice = createSlice({
   name: 'orders',
   initialState: {
-    currentOrder: null,
-    list: [], // ✅ 订单列表
-    loading: false,
+    orders: [],
+    totalCount: 0,
+    status: 'idle', // 取代 loading 标志位
     error: null,
   },
   reducers: {
@@ -80,15 +98,16 @@ const ordersSlice = createSlice({
         state.error = action.payload || '下单失败';
       })
       .addCase(fetchOrders.pending, (state) => {
-        state.loading = true;
+        state.status = 'loading'; // 统一用 status 管理 loading 状态
         state.error = null;
       })
       .addCase(fetchOrders.fulfilled, (state, action) => {
-        state.loading = false;
-        state.list = action.payload;
+        state.status = 'succeeded';
+        state.list = action.payload.orders;
+        state.totalCount = action.payload.totalCount;
       })
       .addCase(fetchOrders.rejected, (state, action) => {
-        state.loading = false;
+        state.status = 'failed';
         state.error = action.payload || '请求失败';
       })
       .addCase(updateOrder.pending, (state) => {

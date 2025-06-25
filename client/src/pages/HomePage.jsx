@@ -22,14 +22,16 @@ const HomePage = () => {
   useEffect(() => {
     dispatch(fetchMenuItems());
   }, [dispatch]);
-
+  // 提取所有的 nameCn 字段
+  menuItems.forEach((item) => {
+    console.log(`${item.nameCn} - $${item.price}`);
+  });
   const filteredMenuItems = activeCategory
     ? menuItems.filter((item) => item.category === activeCategory)
     : menuItems;
 
   return (
     <div className="p-4 max-w-6xl mx-auto">
-
       {/* 菜单卡片 */}
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

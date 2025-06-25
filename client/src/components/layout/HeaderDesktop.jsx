@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 const HeaderDesktop = () => {
   const cart = useSelector((state) => state.cart.items); // 假设你用 Redux 管理购物车
   const itemCount = cart.length; // 购物车里商品数量
-  console.log(itemCount);
+  // console.log(itemCount);
   return (
     <header className="hidden md:block sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container flex h-16 items-center justify-between">

@@ -50,7 +50,7 @@
 // export default CategoryMenu;
 import React from 'react';
 import { ChevronRight } from 'lucide-react';
-import combo2 from '../assets/combo2.png'
+import combo2 from '../assets/combo2.png';
 
 // 餐厅分类emoji图标映射
 const getCategoryEmoji = (categoryId) => {
@@ -92,10 +92,9 @@ const CategoryMenu = ({
       const isActive = activeCategory === category.category_id;
 
       return (
-        <div>
-
+        <div key={category.category_id}>
           <button
-            key={category.id}
+            // key={category.id}
             onClick={() => onCategoryClick(category.category_id)}
             className={`${
               isMobile

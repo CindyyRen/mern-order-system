@@ -1,0 +1,40 @@
+[
+  {
+    "_id": "682080973e090ce9f5f7770d",
+    "itemCode": "001",
+    "nameCn": "天同生煎包",
+    "nameEn": "Pan Fried Pork Buns",
+    "packageSize": 8,
+    "packageUnit": "pcs",
+    "price": 15.8,
+    "currency": "AUD",
+    "description": "Please allow 20 minutes",
+    "tags": [
+      "signature"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "https://unsplash.com/photos/a-bowl-of-dumplings-g7ue2JBhDro",
+    "category": "681ffbd348253069aaf72e2b",
+    "__v": 0
+  },
+  {
+    "_id": "682080973e090ce9f5f7770e",
+    "itemCode": "002",
+    "nameCn": "灌湯小籠包",
+    "nameEn": "Xiao Long Bao - Steamed Soup Dumplings",
+    "packageSize": 8,
+    "packageUnit": "pcs",
+    "price": 15.8,
+    "currency": "AUD",
+    "description": "",
+    "tags": [
+      "signature"
+    ],
+    "spiceLevel": 0,
+    "available": true,
+    "image": "https://unsplash.com/photos/a-bowl-of-dumplings-g7ue2JBhDro",
+    "category": "681ffbd348253069aaf72e2b",
+    "__v": 0
+  }
+]

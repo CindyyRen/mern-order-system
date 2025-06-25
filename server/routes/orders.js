@@ -1,20 +1,132 @@
 import express from 'express';
 import Order from '../models/Order.js';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc.js';
+import timezone from 'dayjs/plugin/timezone.js';
+dayjs.extend(utc);
+dayjs.extend(timezone);
 
 const router = express.Router();
 
+// router.get('/', async (req, res) => {
+//   try {
+//     const { date, search, page = 1, limit = 15 } = req.query;
+
+//     const parsedPage = parseInt(page);
+//     const parsedLimit = parseInt(limit);
+//     const skip = (parsedPage - 1) * parsedLimit;
+
+//     const query = {};
+
+//     // 日期过滤（默认当天）
+//     if (date) {
+//       // 构造本地时间范围（非 UTC）
+//       const start = dayjs.tz(`${date} 00:00:00`, 'Australia/Sydney').toDate();
+//       const end = dayjs.tz(`${date} 23:59:59.999`, 'Australia/Sydney').toDate();
+
+//       query.created_at = { $gte: start, $lte: end };
+//     } else {
+//       // 默认过滤今天
+//       const today = new Date();
+//       today.setHours(0, 0, 0, 0);
+//       const tomorrow = new Date(today);
+//       tomorrow.setDate(today.getDate() + 1);
+//       query.created_at = { $gte: today, $lt: tomorrow };
+//     }
+
+//     // 搜索条件（模糊匹配）
+//     if (search && search.trim() !== '') {
+//       const regex = new RegExp(search.trim(), 'i'); // 不区分大小写
+//       query.$or = [
+//         { 'customer_info.name': regex },
+//         { 'customer_info.phone': regex },
+//         { 'customer_info.table_number': regex },
+//         { dining_type: regex },
+//         { status: regex },
+//         { source: regex },
+//       ];
+//     }
+
+//     const [orders, totalCount] = await Promise.all([
+//       Order.find(query).sort({ created_at: -1 }).skip(skip).limit(parsedLimit),
+//       Order.countDocuments(query),
+//     ]);
+//     // console.log(orders);
+//     res.status(200).json({ orders, totalCount });
+//   } catch (err) {
+//     console.error(err);
+//     res.status(500).json({ message: 'Failed to fetch orders', error: err });
+//   }
+// });
 router.get('/', async (req, res) => {
   try {
-    // 你可以添加分页和排序逻辑，防止数据量太大
-    const orders = await Order.find()
-      .sort({ created_at: -1 }) // 最新订单优先
-      .limit(100); // 限制最多返回100条，后续可改成分页
-    // .populate('placed_by_user', 'name email'); // 如果你User有name email字段
+    const {
+      date,
+      search,
+      page = 1,
+      limit = 15,
+      sortField = 'created_at',
+      sortOrder = 'desc',
+    } = req.query;
 
-    res.json({ orders });
-  } catch (error) {
-    console.error('获取订单失败:', error);
-    res.status(500).json({ message: '服务器错误', error: error.message });
+    const parsedPage = parseInt(page);
+    const parsedLimit = parseInt(limit);
+    const skip = (parsedPage - 1) * parsedLimit;
+
+    const query = {};
+
+    // ===== 日期过滤 =====
+    if (date) {
+      const start = dayjs.tz(`${date} 00:00:00`, 'Australia/Sydney').toDate();
+      const end = dayjs.tz(`${date} 23:59:59.999`, 'Australia/Sydney').toDate();
+      query.created_at = { $gte: start, $lte: end };
+    } else {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const tomorrow = new Date(today);
+      tomorrow.setDate(today.getDate() + 1);
+      query.created_at = { $gte: today, $lt: tomorrow };
+    }
+
+    // ===== 搜索条件 =====
+    if (search && search.trim() !== '') {
+      const regex = new RegExp(search.trim(), 'i');
+      query.$or = [
+        { 'customer_info.name': regex },
+        { 'customer_info.phone': regex },
+        { 'customer_info.table_number': regex },
+        { dining_type: regex },
+        { status: regex },
+        { source: regex },
+      ];
+    }
+    const allowedSortFields = [
+      'created_at',
+      'status',
+      'total_price',
+      'dining_type',
+      'source',
+      'customer_info.table_number', // 如果你支持嵌套字段排序
+    ];
+
+    const safeSortField = allowedSortFields.includes(sortField)
+      ? sortField
+      : 'created_at';
+
+    const safeSortOrder = sortOrder === 'asc' ? 1 : -1;
+    // ===== 排序条件 =====
+    const sort = {};
+    sort[safeSortField] = safeSortOrder;
+
+    const [orders, totalCount] = await Promise.all([
+      Order.find(query).sort(sort).skip(skip).limit(parsedLimit),
+      Order.countDocuments(query),
+    ]);
+
+    res.status(200).json({ orders, totalCount });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Failed to fetch orders', error: err });
   }
 });
 

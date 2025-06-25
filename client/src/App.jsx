@@ -9,6 +9,7 @@ import SearchPage from './pages/SearchPage';
 import OrdersPage from './pages/OrderPage';
 import ZongziDetail from './pages/ZongziDetailPage';
 import CategoryDetail from './pages/CategoryDetailPage';
+import LoginPage from './pages/LoginPage';
 import { Toaster } from 'react-hot-toast';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/categories/:categorySlug" element={<CategoryPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/profile" element={<ProfilePage />} />
