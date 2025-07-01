@@ -14,6 +14,7 @@ import MenuBanner from './MenuBanner';
 import MobileQuickAccess from './Mobilescroll';
 import ComboBanner from './Comobo';
 import MenuCard from './MenuCard ';
+import { ShoppingCart } from 'lucide-react';
 
 import mobileNavItems from '@/constants/mobileNavItems';
 import { mobileMoreMenuItems } from '@/constants/mobileMoreMenuItems';
@@ -21,6 +22,8 @@ import { fetchCategories } from '@/features/category/categorySlice';
 import { fetchMenuItems } from '@/features/menu/menuSlice';
 
 const Layout = ({ children }) => {
+  const cart = useSelector((state) => state.cart.items); // 假设你用 Redux 管理购物车
+  const itemCount = cart.length; // 购物车里商品数量
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -43,6 +46,7 @@ const Layout = ({ children }) => {
   const isHomePage = currentPath === '/';
   const isCategoryDetailPage = currentPath.startsWith('/categories/');
   const isOrderPage = currentPath === '/orders'; // 可根据实际路径调整
+  const isLoginPage = currentPath === '/login'; // 可根据实际路径调整
 
   const currentCategoryId = useMemo(() => {
     if (isCategoryDetailPage) {
@@ -95,11 +99,6 @@ const Layout = ({ children }) => {
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {filteredItems.map((item) => (
-              // <div key={item._id} className="border rounded-lg p-4">
-              //   <h3 className="font-medium">{item.name}</h3>
-              //   <p className="text-sm text-gray-500">{item.nameEn}</p>
-              //   <p className="text-lg font-bold">${item.price}</p>
-              // </div>
               <MenuCard key={item._id} item={item} />
             ))}
           </div>
@@ -119,7 +118,7 @@ const Layout = ({ children }) => {
         {/* Desktop */}
         <div className="hidden md:block">
           <div className="flex">
-            {!isOrderPage && (
+            {!isOrderPage && !isLoginPage && (
               <SidebarDesktopCategories
                 activeCategory={currentCategoryId}
                 categories={categories}
@@ -139,10 +138,40 @@ const Layout = ({ children }) => {
                 <p className="text-gray-500">加载中...</p>
               ) : (
                 <>
-                  <div className="relative flex justify-center items-center space-x-2 border-b border-gray-300 shadow-sm">
+                  {/* <div className="relative flex justify-center items-center space-x-2 border-b border-gray-300 shadow-sm">
                     <img src={Icon} alt="icon" width={50} />
+                    <Link
+                      to="/cart"
+                      className="relative flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                    >
+                      <ShoppingCart />
+                      <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-orange-500 text-[10px] font-medium text-white">
+                        {itemCount}
+                      </span>
+                      <span className="sr-only">购物车</span>
+                    </Link>
                     <strong>HAHA</strong>
+                  </div> */}
+                  <div className="flex items-center border-b border-gray-300 shadow-sm px-4">
+                    {/* 左边：图标 + HAHA */}
+                    <div className="flex items-center space-x-2">
+                      <img src={Icon} alt="icon" width={50} />
+                      <strong>HAHA</strong>
+                    </div>
+
+                    {/* 右边：购物车 */}
+                    <Link
+                      to="/cart"
+                      className="relative flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors ml-auto"
+                    >
+                      <ShoppingCart />
+                      <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-orange-500 text-[10px] font-medium text-white">
+                        {itemCount}
+                      </span>
+                      <span className="sr-only">购物车</span>
+                    </Link>
                   </div>
+
                   <div className="mt-2">
                     <Link to="/zongzi">
                       <SeasonalAd />

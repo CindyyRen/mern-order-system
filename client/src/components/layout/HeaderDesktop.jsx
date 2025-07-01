@@ -1,12 +1,24 @@
-import { ShoppingCart, User } from 'lucide-react';
+import { ShoppingCart, User, LogIn, LogOut } from 'lucide-react';
 import Link from '../Link';
 import { desktopNavLinks } from '@/constants/desktopNavLinks';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { logout } from '@/features/auth/authSlice';
+import { useNavigate } from 'react-router-dom';
 
 const HeaderDesktop = () => {
+  const isLoggedIn = useSelector((state) => !!state.auth.token);
   const cart = useSelector((state) => state.cart.items); // 假设你用 Redux 管理购物车
   const itemCount = cart.length; // 购物车里商品数量
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   // console.log(itemCount);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    // 可选：清空 localStorage 里的 token，或其他清理操作
+    navigate('/login'); // 或者跳首页
+  };
   return (
     <header className="hidden md:block sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container flex h-16 items-center justify-between">
@@ -36,13 +48,36 @@ const HeaderDesktop = () => {
             </span>
             <span className="sr-only">购物车</span>
           </Link>
-          <Link
-            to="/profile"
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
-          >
-            <User />
-            <span className="sr-only">用户中心</span>
-          </Link>
+
+          {isLoggedIn ? (
+            <>
+              <Link
+                to="/profile"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+              >
+                <User />
+                <span className="sr-only">用户中心</span>
+              </Link>
+              <button
+                onClick={handleLogout}
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+                title="退出登录"
+                type="button"
+              >
+                <LogOut />
+                <span className="sr-only">退出登录</span>
+              </button>
+            </>
+          ) : (
+            <Link
+              to="/login"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+              title="登录"
+            >
+              <LogIn />
+              <span className="sr-only">登录</span>
+            </Link>
+          )}
         </div>
       </div>
     </header>

@@ -5,9 +5,15 @@ export const placeOrder = createAsyncThunk(
   'orders/placeOrder',
   async (orderData, thunkAPI) => {
     try {
+      const state = thunkAPI.getState();
+      const token = thunkAPI.getState().auth.token;
+      console.log(token);
       const res = await fetch('http://localhost:5000/api/orders', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`, // ✅ 一样
+        },
         body: JSON.stringify(orderData),
       });
       if (!res.ok) {
@@ -28,6 +34,8 @@ export const fetchOrders = createAsyncThunk(
     thunkAPI
   ) => {
     try {
+      const state = thunkAPI.getState();
+      const token = state.auth.token; // 👈 从 Redux 中获取 token
       const params = new URLSearchParams();
       params.set('page', page);
       params.set('limit', limit);
@@ -36,8 +44,17 @@ export const fetchOrders = createAsyncThunk(
       if (sortField) params.set('sortField', sortField);
       if (sortOrder) params.set('sortOrder', sortOrder);
 
+      // const res = await fetch(
+      //   `http://localhost:5000/api/orders?${params.toString()}`
+      // );
       const res = await fetch(
-        `http://localhost:5000/api/orders?${params.toString()}`
+        `http://localhost:5000/api/orders?${params.toString()}`,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`, // ✅ 关键
+          },
+        }
       );
       if (!res.ok) {
         throw new Error('获取订单失败');
@@ -60,7 +77,10 @@ export const updateOrder = createAsyncThunk(
   async ({ id, updates }, thunkAPI) => {
     const res = await fetch(`http://localhost:5000/api/orders/${id}`, {
       method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`, // ✅ 一样
+      },
       body: JSON.stringify(updates),
     });
     if (!res.ok) throw new Error('更新失败');

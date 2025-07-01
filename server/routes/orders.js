@@ -3,61 +3,12 @@ import Order from '../models/Order.js';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc.js';
 import timezone from 'dayjs/plugin/timezone.js';
+import { authMiddleware } from '../middleware/authMiddleware.js';
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
 const router = express.Router();
-
-// router.get('/', async (req, res) => {
-//   try {
-//     const { date, search, page = 1, limit = 15 } = req.query;
-
-//     const parsedPage = parseInt(page);
-//     const parsedLimit = parseInt(limit);
-//     const skip = (parsedPage - 1) * parsedLimit;
-
-//     const query = {};
-
-//     // 日期过滤（默认当天）
-//     if (date) {
-//       // 构造本地时间范围（非 UTC）
-//       const start = dayjs.tz(`${date} 00:00:00`, 'Australia/Sydney').toDate();
-//       const end = dayjs.tz(`${date} 23:59:59.999`, 'Australia/Sydney').toDate();
-
-//       query.created_at = { $gte: start, $lte: end };
-//     } else {
-//       // 默认过滤今天
-//       const today = new Date();
-//       today.setHours(0, 0, 0, 0);
-//       const tomorrow = new Date(today);
-//       tomorrow.setDate(today.getDate() + 1);
-//       query.created_at = { $gte: today, $lt: tomorrow };
-//     }
-
-//     // 搜索条件（模糊匹配）
-//     if (search && search.trim() !== '') {
-//       const regex = new RegExp(search.trim(), 'i'); // 不区分大小写
-//       query.$or = [
-//         { 'customer_info.name': regex },
-//         { 'customer_info.phone': regex },
-//         { 'customer_info.table_number': regex },
-//         { dining_type: regex },
-//         { status: regex },
-//         { source: regex },
-//       ];
-//     }
-
-//     const [orders, totalCount] = await Promise.all([
-//       Order.find(query).sort({ created_at: -1 }).skip(skip).limit(parsedLimit),
-//       Order.countDocuments(query),
-//     ]);
-//     // console.log(orders);
-//     res.status(200).json({ orders, totalCount });
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json({ message: 'Failed to fetch orders', error: err });
-//   }
-// });
+router.use(authMiddleware);
 router.get('/', async (req, res) => {
   try {
     const {

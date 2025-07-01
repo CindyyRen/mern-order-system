@@ -11,6 +11,7 @@ import ZongziDetail from './pages/ZongziDetailPage';
 import CategoryDetail from './pages/CategoryDetailPage';
 import LoginPage from './pages/LoginPage';
 import { Toaster } from 'react-hot-toast';
+import RequireAuth from '@/components/RequireAuth';
 
 function App() {
   return (
@@ -24,7 +25,15 @@ function App() {
           <Route path="/cart" element={<CartPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="/orders" element={<OrdersPage />} />
+          {/* <Route path="/orders" element={<OrdersPage />} /> */}
+          <Route
+            path="/orders"
+            element={
+              <RequireAuth>
+                <OrdersPage />
+              </RequireAuth>
+            }
+          />
           <Route path="/zongzi" element={<ZongziDetail />} />
           <Route path="/categories" element={<CategoryDetail />} />
         </Routes>

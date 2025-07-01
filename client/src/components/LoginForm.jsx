@@ -1,74 +1,73 @@
 import React, { useState } from 'react';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { toast } from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../features/auth/authSlice';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-const LoginForm = () => {
+export default function LoginForm() {
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/orders';
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { status, error } = useSelector((state) => state.auth);
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!username || !password) {
-      toast.error('请输入用户名和密码');
-      return;
-    }
-
     try {
-      setLoading(true);
-      const res = await fetch('http://localhost:5000/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
-      });
+      await dispatch(login({ username, password })).unwrap();
 
-      if (!res.ok) {
-        const err = await res.json();
-        throw new Error(err.message || '登录失败');
-      }
-
-      const data = await res.json();
-      localStorage.setItem('token', data.token);
-      toast.success('登录成功');
-      navigate('/orders'); // 登录后跳转页面
+      // 登录成功，跳转首页
+      // navigate('/');
+      // 登录成功，跳转回原始页面 or 默认到 /orders
+      navigate(from, { replace: true });
     } catch (err) {
-      toast.error(err.message);
-    } finally {
-      setLoading(false);
+      // 登录失败，处理错误
+      console.error('登录失败:', err);
     }
   };
-
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <Card className="w-[360px]">
-        <CardHeader>
-          <CardTitle className="text-center">员工登录</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleLogin} className="space-y-4">
-            <Input
-              placeholder="用户名"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <Input
-              type="password"
-              placeholder="密码"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? '登录中…' : '登录'}
-            </Button>
-          </form>
-        </CardContent>
-      </Card>
-    </div>
-  );
-};
+    <form
+      onSubmit={handleSubmit}
+      className="max-w-sm mx-auto p-4 border rounded"
+    >
+      <h2 className="text-xl mb-4 font-semibold text-center">员工登录</h2>
 
-export default LoginForm;
+      <label className="block mb-2">
+        用户名
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+          className="w-full border p-2 rounded mt-1"
+        />
+      </label>
+
+      <label className="block mb-4">
+        密码
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          className="w-full border p-2 rounded mt-1"
+        />
+      </label>
+
+      <button
+        type="submit"
+        disabled={status === 'loading'}
+        className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 disabled:opacity-50"
+      >
+        {status === 'loading' ? '登录中...' : '登录'}
+      </button>
+
+      {status === 'failed' && (
+        <p className="mt-4 text-red-600 text-center">{error}</p>
+      )}
+    </form>
+  );
+}

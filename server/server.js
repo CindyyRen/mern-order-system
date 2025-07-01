@@ -5,6 +5,7 @@ import cors from 'cors';
 import menuItemsRouter from './routes/menuItems.js';
 import categoriesRouter from './routes/categories.js'; // 引入分类路由
 import ordersRouter from './routes/orders.js'; // 引入订单路由
+import authRoutes from './routes/auth.js';
 import { setupSwagger } from './swagger.js'; // 上一步新建的文件
 dotenv.config();
 
@@ -17,6 +18,7 @@ setupSwagger(app);
 app.use('/api/menu-items', menuItemsRouter); // 将 menuItems 路由挂载到 /api/menu-items
 app.use('/api/categories', categoriesRouter); // 将 categories 路由挂载到 /api/categories
 app.use('/api/orders', ordersRouter); // 将 orders 路由挂载到 /api/orders
+app.use('/api', authRoutes);
 
 connect(process.env.MONGO_URI)
   .then(() => {
