@@ -35,7 +35,13 @@ const OrderPage = () => {
   const currentPage = parseInt(searchParams.get('page')) || 1;
   const pageSize = 10;
   // const [selectedDate, setSelectedDate] = useState(new Date());
-  const selectedDate = searchParams.get('date') || dayjs().format('YYYY-MM-DD');
+  const selectedDateParam = searchParams.get('date');
+  const selectedDate = selectedDateParam || dayjs().format('YYYY-MM-DD');
+
+  const pickerValue =
+    selectedDateParam && selectedDateParam !== 'all'
+      ? dayjs(selectedDate).toDate()
+      : null; // null 表示没有具体日期选择
 
   const sortBy = searchParams.get('sortField') || 'created_at';
   const sortOrder = searchParams.get('sortOrder') || 'desc';
@@ -49,7 +55,7 @@ const OrderPage = () => {
       });
     }
   }, []);
-  
+
   useEffect(() => {
     const date = searchParams.get('date') || dayjs().format('YYYY-MM-DD');
     const search = searchParams.get('search') || '';
@@ -57,6 +63,14 @@ const OrderPage = () => {
     const pageSize = parseInt(searchParams.get('pageSize')) || 10;
     const sortField = searchParams.get('sortField') || 'created_at';
     const sortOrder = searchParams.get('sortOrder') || 'desc';
+    console.log('发起请求:', {
+      date,
+      search,
+      page,
+      pageSize,
+      sortField,
+      sortOrder,
+    });
 
     dispatch(
       fetchOrders({
@@ -125,9 +139,9 @@ const OrderPage = () => {
     });
   };
 
-  if (status === 'loading') return <div>加载中...</div>;
-  if (status === 'failed') return <div>出错了：{error}</div>;
-  if (!orders || orders.length === 0) return <div>暂无订单</div>;
+  // if (status === 'loading') return <div>加载中...</div>;
+  // if (status === 'failed') return <div>出错了：{error}</div>;
+  // if (!orders || orders.length === 0) return <div>暂无订单</div>;
 
   const totalPages = Math.ceil(totalCount / pageSize);
   const sortedOrders = orders;
@@ -150,133 +164,194 @@ const OrderPage = () => {
       {paid ? '已支付' : '未支付'}
     </Badge>
   );
+  const handleShowAll = () => {
+    console.log('点击查看全部订单'); // 添加日志
+    setSearchParams((prev) => {
+      const next = new URLSearchParams(prev);
+      next.set('date', 'all'); // 明确告诉后端查全部
+      next.set('page', 1);
+      next.delete('search');
+      return next;
+    });
+  };
 
   return (
     <div className="p-2">
-      {/* 顶部工具栏 */}
-      <div className="flex">
-        <div className="flex items-center gap-3 py-4">
-          <span className="text-sm font-medium text-muted-foreground">
-            筛选日期：
-          </span>
-          <OrderDatePicker
-            value={dayjs(selectedDate).toDate()}
-            onChange={handleDateChange}
-          />
+      <div className="flex justify-between items-center">
+        {/* 左侧：筛选日期 + 搜索框 */}
+        <div className="flex">
+          <div className="flex items-center gap-3 py-4">
+            <span className="text-sm font-medium text-muted-foreground">
+              筛选日期：
+            </span>
+            <OrderDatePicker value={pickerValue} onChange={handleDateChange} />
+          </div>
+          {/* 搜索框 */}
+          <div className="flex items-center gap-2 px-4">
+            <span className="text-sm font-medium text-muted-foreground">
+              搜索：
+            </span>
+            <Input
+              placeholder="搜索桌号、电话、姓名…"
+              value={searchParams.get('search') || ''}
+              onChange={handleSearchChange}
+              className="w-64"
+            />
+          </div>
         </div>
-        {/* 搜索框 */}
-        <div className="flex items-center gap-2 px-4">
-          <span className="text-sm font-medium text-muted-foreground">
-            搜索：
-          </span>
-          <Input
-            placeholder="搜索桌号、电话、姓名…"
-            value={searchParams.get('search') || ''}
-            onChange={handleSearchChange}
-            className="w-64"
-          />
+
+        {/* 右侧：按钮 */}
+        <div>
+          <Button
+            variant="outline"
+            onClick={handleShowAll} //我这函数应该怎么写
+          >
+            全部订单
+          </Button>
         </div>
       </div>
-      
-      <table className="w-full table-auto border">
-        <thead>
-          <tr className="bg-gray-100 text-left">
-            <th className="p-2 border">订单号</th>
-            <th
-              className="p-2 border cursor-pointer select-none"
-              onClick={() => handleSortClick('status')}
-            >
-              状态
-              {sortBy === 'status' &&
-                (sortOrder === 'asc' ? (
-                  <ArrowUp className="inline w-4 h-4 ml-1" />
-                ) : (
-                  <ArrowDown className="inline w-4 h-4 ml-1" />
-                ))}
-            </th>
-            <th className="p-2 border">用餐方式</th>
-            <th className="p-2 border">桌号</th>
-            <th className="p-2 border">来源</th>
-            <th className="p-2 border">支付</th>
-            <th
-              className="p-2 border cursor-pointer select-none"
-              onClick={() => handleSortClick('total_price')}
-            >
-              总价{' '}
-              {sortBy === 'total_price' &&
-                (sortOrder === 'asc' ? (
-                  <ArrowUp className="inline w-4 h-4 ml-1" />
-                ) : (
-                  <ArrowDown className="inline w-4 h-4 ml-1" />
-                ))}
-            </th>
-            <th className="p-2 border">下单时间</th>
-            <th className="p-2 border">操作</th>
-          </tr>
-        </thead>
-        <tbody>
-          {sortedOrders.map((order, index) => (
-            <tr
-              key={order._id}
-              className={`${
-                index % 2 === 0 ? 'bg-white' : 'bg-gray-50'
-              } hover:bg-blue-50`}
-            >
-              <td className="p-2 border">{order.order_number}</td>
-              <td className="border px-2 py-1">
-                <span
-                  className={`text-sm font-medium ${
-                    statusColorMap[order.status]
-                  }`}
+      {/* 下面显示内容区 */}
+      {status === 'loading' && <div>加载中…</div>}
+      {status === 'failed' && (
+        <div className="text-red-500">加载失败：{error}</div>
+      )}
+      {status === 'succeeded' && orders.length === 0 && <div>暂无订单</div>}
+      {status === 'succeeded' && orders.length > 0 && (
+        <div>
+          <table className="w-full table-auto border">
+            <thead>
+              <tr className="bg-gray-100 text-left">
+                <th className="p-2 border">订单号</th>
+                <th
+                  className="p-2 border cursor-pointer select-none"
+                  onClick={() => handleSortClick('status')}
                 >
-                  {order.status}
-                </span>
-              </td>
-              <td className="p-2 border">{order.dining_type}</td>
-              <td className="p-2 border">
-                {order.customer_info?.table_number || '—'}
-              </td>
-              <td className="p-2 border">
-                <Badge>{getSourceLabel(order.source)}</Badge>
-              </td>
-              <td className="p-2 border">
-                {getPaymentBadge(order.payment?.paid)}
-              </td>
-              <td className="p-2 border">${order.total_price.toFixed(2)}</td>
-              <td className="p-2 border">
-                {new Date(order.created_at).toLocaleString()}
-              </td>
-              <td className="p-2 border">
-                <div className="flex gap-2">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="text-amber-500 hover:text-amber-600"
-                    onClick={() => setSelectedOrder(order)}
-                  >
-                    详情
-                  </Button>
-                  <PrintOrderButton order={order} />
-                </div>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-      />
-      
-      {/* 详情 Modal */}
-      <OrderDetailsModal
-        open={!!selectedOrder}
-        order={selectedOrder}
-        onClose={() => setSelectedOrder(null)}
-        onStatusChange={handleStatusChange}
-      />
+                  状态
+                  {sortBy === 'status' &&
+                    (sortOrder === 'asc' ? (
+                      <ArrowUp className="inline w-4 h-4 ml-1" />
+                    ) : (
+                      <ArrowDown className="inline w-4 h-4 ml-1" />
+                    ))}
+                </th>
+                <th
+                  className="p-2 border"
+                  onClick={() => handleSortClick('dining_type')}
+                >
+                  用餐方式{' '}
+                  {sortBy === 'dining_type' &&
+                    (sortOrder === 'asc' ? (
+                      <ArrowUp className="inline w-4 h-4 ml-1" />
+                    ) : (
+                      <ArrowDown className="inline w-4 h-4 ml-1" />
+                    ))}
+                </th>
+                <th className="p-2 border">桌号</th>
+                <th className="p-2 border">来源</th>
+                <th
+                  className="p-2 border"
+                  onClick={() => handleSortClick('payment.paid')}
+                >
+                  支付{' '}
+                  {sortBy === 'payment.paid' &&
+                    (sortOrder === 'asc' ? (
+                      <ArrowUp className="inline w-4 h-4 ml-1" />
+                    ) : (
+                      <ArrowDown className="inline w-4 h-4 ml-1" />
+                    ))}
+                </th>
+                <th
+                  className="p-2 border cursor-pointer select-none"
+                  onClick={() => handleSortClick('total_price')}
+                >
+                  总价{' '}
+                  {sortBy === 'total_price' &&
+                    (sortOrder === 'asc' ? (
+                      <ArrowUp className="inline w-4 h-4 ml-1" />
+                    ) : (
+                      <ArrowDown className="inline w-4 h-4 ml-1" />
+                    ))}
+                </th>
+                <th
+                  className="p-2 border"
+                  onClick={() => handleSortClick('created_at')}
+                >
+                  下单时间{' '}
+                  {sortBy === 'created_at' &&
+                    (sortOrder === 'asc' ? (
+                      <ArrowUp className="inline w-4 h-4 ml-1" />
+                    ) : (
+                      <ArrowDown className="inline w-4 h-4 ml-1" />
+                    ))}
+                </th>
+                <th className="p-2 border">操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              {sortedOrders.map((order, index) => (
+                <tr
+                  key={order._id}
+                  className={`${
+                    index % 2 === 0 ? 'bg-white' : 'bg-gray-50'
+                  } hover:bg-blue-50`}
+                >
+                  <td className="p-2 border">{order.order_number}</td>
+                  <td className="border px-2 py-1">
+                    <span
+                      className={`text-sm font-medium ${
+                        statusColorMap[order.status]
+                      }`}
+                    >
+                      {order.status}
+                    </span>
+                  </td>
+                  <td className="p-2 border">{order.dining_type}</td>
+                  <td className="p-2 border">
+                    {order.customer_info?.table_number || '—'}
+                  </td>
+                  <td className="p-2 border">
+                    <Badge>{getSourceLabel(order.source)}</Badge>
+                  </td>
+                  <td className="p-2 border">
+                    {getPaymentBadge(order.payment?.paid)}
+                  </td>
+                  <td className="p-2 border">
+                    ${order.total_price.toFixed(2)}
+                  </td>
+                  <td className="p-2 border">
+                    {new Date(order.created_at).toLocaleString()}
+                  </td>
+                  <td className="p-2 border">
+                    <div className="flex gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="text-amber-500 hover:text-amber-600"
+                        onClick={() => setSelectedOrder(order)}
+                      >
+                        详情
+                      </Button>
+                      <PrintOrderButton order={order} />
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
+          {/* 详情 Modal */}
+          <OrderDetailsModal
+            open={!!selectedOrder}
+            order={selectedOrder}
+            onClose={() => setSelectedOrder(null)}
+            onStatusChange={handleStatusChange}
+          />{' '}
+        </div>
+      )}
     </div>
   );
 };

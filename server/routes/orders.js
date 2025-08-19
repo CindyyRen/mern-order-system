@@ -16,28 +16,30 @@ router.get('/', async (req, res) => {
       search,
       page = 1,
       limit = 15,
+      pageSize,
       sortField = 'created_at',
       sortOrder = 'desc',
     } = req.query;
 
     const parsedPage = parseInt(page);
-    const parsedLimit = parseInt(limit);
+    const parsedLimit = parseInt(pageSize || limit); // 兼容两种写法
     const skip = (parsedPage - 1) * parsedLimit;
 
     const query = {};
-
-    // ===== 日期过滤 =====
-    if (date) {
+    if (date && date !== 'all') {
+      // 有具体日期 → 查那天
       const start = dayjs.tz(`${date} 00:00:00`, 'Australia/Sydney').toDate();
       const end = dayjs.tz(`${date} 23:59:59.999`, 'Australia/Sydney').toDate();
       query.created_at = { $gte: start, $lte: end };
-    } else {
+    } else if (!date) {
+      // 没传 date → 默认今天
       const today = new Date();
       today.setHours(0, 0, 0, 0);
       const tomorrow = new Date(today);
       tomorrow.setDate(today.getDate() + 1);
       query.created_at = { $gte: today, $lt: tomorrow };
     }
+    // date === 'all' 时 → 不加任何日期条件，查所有
 
     // ===== 搜索条件 =====
     if (search && search.trim() !== '') {
@@ -58,6 +60,7 @@ router.get('/', async (req, res) => {
       'dining_type',
       'source',
       'customer_info.table_number', // 如果你支持嵌套字段排序
+      'payment.paid', // 加上这一项
     ];
 
     const safeSortField = allowedSortFields.includes(sortField)
@@ -127,19 +130,21 @@ router.post('/', async (req, res) => {
     }
 
     // ===== 每个 item 自动计算 subtotal =====
-    const processedItems = items.map((item) => {
-      const { price, quantity } = item;
-      if (
-        typeof price !== 'number' ||
-        typeof quantity !== 'number' ||
-        quantity < 1
-      ) {
-        throw new Error('商品价格或数量无效');
-      }
 
-      const subtotal = price * quantity;
-      return { ...item, subtotal };
-    });
+    const processedItems = items
+      .map((item) => {
+        const { price, quantity } = item;
+        if (
+          typeof price !== 'number' ||
+          typeof quantity !== 'number' ||
+          quantity < 1
+        ) {
+          console.warn('无效 item，跳过:', item);
+          return null; // 或者给默认值
+        }
+        return { ...item, subtotal: price * quantity };
+      })
+      .filter(Boolean); // 过滤掉无效 item
 
     // ===== 创建订单对象 =====
     const newOrder = new Order({
@@ -158,8 +163,17 @@ router.post('/', async (req, res) => {
       customer_notes,
     });
 
-    newOrder.calculateTotal(); // 自动计算金额
     await newOrder.save();
+    // 然后再入队打印任务
+    // 使用 MongoDB 批量更新 item.print_status + 入队
+    await Order.updateOne(
+      { _id: newOrder._id },
+      { $set: { 'items.$[].print_status': 'printing' } }
+    );
+    newOrder.items.forEach((item) => {
+      const printer = selectPrinter(item.category);
+      enqueuePrint(printer, item, newOrder._id.toString());
+    });
 
     return res.status(201).json({
       message: '订单创建成功',

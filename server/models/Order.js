@@ -16,6 +16,11 @@ const OrderSchema = new Schema({
       quantity: { type: Number, required: true, min: 1 },
       special_instructions: String,
       subtotal: { type: Number, required: true },
+      print_status: {
+        type: String,
+        enum: ['pending', 'printing', 'printed', 'failed'],
+        default: 'pending',
+      },
     },
   ],
   subtotal: { type: Number, required: true },
@@ -28,6 +33,18 @@ const OrderSchema = new Schema({
     type: String,
     enum: ['pending', 'completed', 'cancelled'],
     default: 'pending',
+  },
+  print_status: {
+    type: String,
+    enum: [
+      'pending',
+      'printing',
+      'printed',
+      'partially_failed',
+      'completed',
+      'cancelled',
+    ],
+    default: 'cancelled',
   },
 
   order_number: {

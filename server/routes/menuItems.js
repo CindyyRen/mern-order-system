@@ -32,13 +32,29 @@ const router = express.Router();
  */
 
 // 获取菜单项列表
+// router.get('/', async (req, res) => {
+//   try {
+//     const menuItems = await MenuItem.find();
+//     console.log(menuItems);
+
+//     res.status(200).json(menuItems);
+//   } catch (error) {
+//     res.status(500).json({ message: 'Failed to fetch menu items', error });
+//     console.log(error);
+//   }
+// });
+
+// export default router;
+
 router.get('/', async (req, res) => {
+  console.log('📥 [GET] /api/menu-items 被访问');
+
   try {
     const menuItems = await MenuItem.find();
-
-    res.status(200).json(menuItems);
+    res.status(200).json(menuItems || []);
   } catch (error) {
-    res.status(500).json({ message: 'Failed to fetch menu items', error });
+    console.error('❌ 获取菜单项出错:', error);
+    res.status(500).json({ message: 'Failed to fetch menu items' });
   }
 });
 
